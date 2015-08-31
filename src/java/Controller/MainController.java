@@ -7,6 +7,7 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,8 @@ public class MainController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("myTitle", "Welcome to Awesomeness");
         
-        RequestDispaster view = request.getRequestDispacther("/index.jsp");
+       
+        RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
         view.forward(request,response);
     }
 
