@@ -7,6 +7,7 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author L115student
+ * @author Steven
  */
 @WebServlet(name = "MainController", urlPatterns = {"/MainController"})
 public class MainController extends HttpServlet {
@@ -33,11 +34,16 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setAttribute("myTitle", "Welcome to Awesomeness");
         
-       
-        RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
-        view.forward(request,response);
+        String s = "hello World";
+        request.setAttribute("myTitle",s);
+        
+        Date currentDate = new Date();
+        request.setAttribute("currentDate", currentDate);
+        
+        RequestDispatcher view =
+                request.getRequestDispatcher("/index.jsp");
+        view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
